@@ -12,6 +12,7 @@ import {
   Label,
 } from "recharts";
 import { MockType } from "types/mockData.type";
+import CustomTooltip from "./CustomTooltip";
 
 const Chart = ({ data }: { data: MockType[] }) => {
   return (
@@ -34,7 +35,7 @@ const Chart = ({ data }: { data: MockType[] }) => {
             <Label value="Area" angle={-90} position="left" />
           </YAxis>
 
-          <Tooltip />
+          <Tooltip content={<CustomTooltip data={data} />} />
           <Legend verticalAlign="top" height={36} />
           <CartesianGrid stroke="#f5f5f5" />
           <Area

@@ -1,4 +1,4 @@
-import Chart from "./components/Chart";
+import Chart from "./components/TimeSeriesChart";
 import mockData from "./data/mockData.json";
 import { MockType } from "types/mockData.type";
 

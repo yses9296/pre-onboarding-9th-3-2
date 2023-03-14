@@ -12,7 +12,7 @@ import {
   LineController,
   BarController,
 } from "chart.js";
-import { Chart } from "react-chartjs-2";
+import { Chart as ReactChart } from "react-chartjs-2";
 import { dataAreaSet, dataBarSet } from "../utils/chartDataSet";
 import { options } from "../utils/chartOption";
 
@@ -34,7 +34,7 @@ const TimeSeriesChart = ({ data }: { data: MockType[] }) => {
     datasets: [dataAreaSet(data), dataBarSet(data)],
   };
 
-  return <Chart type="bar" data={chartData} options={options} />;
+  return <ReactChart type="bar" data={chartData} options={options} />;
 };
 
 export default TimeSeriesChart;

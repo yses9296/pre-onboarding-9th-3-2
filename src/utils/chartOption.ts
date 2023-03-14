@@ -1,3 +1,5 @@
+const Y_AXIS_MAX = 200;
+
 export const options = {
   responsive: true,
   interaction: {
@@ -18,11 +20,14 @@ export const options = {
       type: "linear" as const,
       display: true,
       position: "left" as const,
+      title: { display: true, text: "Area" },
+      max: Y_AXIS_MAX,
     },
     y1: {
       type: "linear" as const,
       display: true,
       position: "right" as const,
+      title: { display: true, text: "Bar" },
       grid: {
         drawOnChartArea: false,
       },

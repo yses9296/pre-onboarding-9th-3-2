@@ -1,3 +1,4 @@
+import React, { useRef } from "react";
 import { MockType } from "types/mockData.type";
 import {
   Chart as ChartJS,
@@ -12,6 +13,7 @@ import {
   LineController,
   BarController,
 } from "chart.js";
+
 import { Chart as ReactChart } from "react-chartjs-2";
 import { dataAreaSet, dataBarSet } from "../utils/chartDataSet";
 import { options } from "../utils/chartOption";
@@ -30,11 +32,11 @@ ChartJS.register(
 );
 
 const TimeSeriesChart = ({ data }: { data: MockType[] }) => {
-  const chartData = {
+  const chartData = React.useRef({
     datasets: [dataAreaSet(data), dataBarSet(data)],
-  };
+  });
 
-  return <ReactChart type="bar" data={chartData} options={options} />;
+  return <ReactChart type="bar" data={chartData.current} options={options} />;
 };
 
 export default TimeSeriesChart;

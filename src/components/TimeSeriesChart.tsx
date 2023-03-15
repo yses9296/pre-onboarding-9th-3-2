@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Chart as ChartJS,
   LinearScale,
@@ -14,9 +13,8 @@ import {
 } from "chart.js";
 
 import { Chart as ReactChart } from "react-chartjs-2";
-import { dataAreaSet, dataBarSet } from "../utils/chartDataSet";
-import { options } from "../utils/chartOption";
-import { dataArr } from "../utils/fetchData";
+import getChartOption from "../utils/getChartOption";
+import getChartDataSet from "../utils/getChartDataSet";
 
 ChartJS.register(
   LinearScale,
@@ -31,12 +29,15 @@ ChartJS.register(
   BarController
 );
 
-const TimeSeriesChart = () => {
-  const chartData = React.useRef({
-    datasets: [dataAreaSet(dataArr), dataBarSet(dataArr)],
-  });
+type Props = {
+  targetID: string | null;
+};
 
-  return <ReactChart type="bar" data={chartData.current} options={options} />;
+const TimeSeriesChart = ({ targetID }: Props) => {
+  const chartDataSet = getChartDataSet(targetID);
+  const chartOption = getChartOption();
+
+  return <ReactChart type="bar" data={chartDataSet} options={chartOption} />;
 };
 
 export default TimeSeriesChart;

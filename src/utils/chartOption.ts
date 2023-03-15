@@ -1,3 +1,5 @@
+import { fetchData } from "./fetchData";
+
 const Y_AXIS_MAX = 200;
 
 export const options = {
@@ -13,6 +15,19 @@ export const options = {
     title: {
       display: true,
       text: "Area-Bar Chart",
+    },
+    tooltip: {
+      callbacks: {
+        afterTitle: (tooltipItem: any) => {
+          const id = findId(tooltipItem[0].label);
+          return `ID: ${id}`;
+        },
+        label: (tooltipItem: any) => {
+          return `${
+            tooltipItem.dataset.label
+          }: ${tooltipItem.parsed.y.toLocaleString()}`;
+        },
+      },
     },
   },
   scales: {
@@ -34,3 +49,12 @@ export const options = {
     },
   },
 };
+
+export function findId(date: string) {
+  const data_list = fetchData();
+  const findItem = data_list.find((targetData) => targetData.date === date);
+
+  if (!findItem) return undefined;
+
+  return findItem.id;
+}

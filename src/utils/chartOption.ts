@@ -1,5 +1,5 @@
 import { ChartOptions } from "chart.js";
-import { fetchData } from "./fetchData";
+import { dataArr } from "./fetchData";
 
 const Y_AXIS_MAX = 200;
 
@@ -47,8 +47,7 @@ export const options: ChartOptions = {
 };
 
 export function findId(date: string) {
-  const data_list = fetchData();
-  const findItem = data_list.find((targetData) => targetData.date === date);
+  const findItem = dataArr.find((targetData) => targetData.date === date);
 
   if (!findItem) return undefined;
 

@@ -1,8 +1,9 @@
+import { ChartOptions } from "chart.js";
 import { fetchData } from "./fetchData";
 
 const Y_AXIS_MAX = 200;
 
-export const options = {
+export const options: ChartOptions = {
   responsive: true,
   interaction: {
     mode: "index" as const,
@@ -18,14 +19,9 @@ export const options = {
     },
     tooltip: {
       callbacks: {
-        afterTitle: (tooltipItem: any) => {
+        afterTitle: (tooltipItem) => {
           const id = findId(tooltipItem[0].label);
           return `ID: ${id}`;
-        },
-        label: (tooltipItem: any) => {
-          return `${
-            tooltipItem.dataset.label
-          }: ${tooltipItem.parsed.y.toLocaleString()}`;
         },
       },
     },

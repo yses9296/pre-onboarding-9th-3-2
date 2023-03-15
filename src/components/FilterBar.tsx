@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { dataArr } from "../utils/fetchData";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 type Props = {
   targetID: string | null;
@@ -20,22 +21,37 @@ const FilterBar = ({ targetID }: Props) => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="w-full flex items-center justify-center flex-row relative h-24">
+      <div className="absolute left-10">
         {placeArr.map((place, idx) => (
-          <button key={idx} value={place} onClick={onClickPlaceHandler}>
+          <button
+            key={idx}
+            value={place}
+            onClick={onClickPlaceHandler}
+            className={
+              place === targetID
+                ? "border-2 bg-sky-700 text-white rounded-md px-6 py-2 mr-3"
+                : "border-2 border-sky-700 rounded-md px-6 py-2 mr-3"
+            }
+          >
             {place}
           </button>
         ))}
-        <button
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Clear
-        </button>
       </div>
-      {selected !== "" && <h2> {selected} </h2>}
+      {selected !== "" && (
+        <>
+          <h2 className="text-2xl font-bold mr-2"> {selected} </h2>
+          <button
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            <AiOutlineCloseCircle
+              style={{ width: "24px", height: "24px", color: "#777" }}
+            />
+          </button>
+        </>
+      )}
     </div>
   );
 };

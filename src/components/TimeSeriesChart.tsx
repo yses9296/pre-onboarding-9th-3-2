@@ -37,7 +37,11 @@ const TimeSeriesChart = ({ targetID }: Props) => {
   const chartDataSet = getChartDataSet(targetID);
   const chartOption = getChartOption();
 
-  return <ReactChart type="bar" data={chartDataSet} options={chartOption} />;
+  return (
+    <div className="w-10/12 mx-auto">
+      <ReactChart type="bar" data={chartDataSet} options={chartOption} />
+    </div>
+  );
 };
 
 export default TimeSeriesChart;

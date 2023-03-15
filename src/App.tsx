@@ -1,12 +1,8 @@
-import TimeSeriesChart from "./components/TimeSeriesChart";
+import { RouterProvider } from "react-router-dom";
+import Router from "./Router";
 
 function App() {
-  return (
-    <div style={{ width: "100%", height: "100vh" }}>
-      <h3>Flexsys </h3>
-      <TimeSeriesChart />
-    </div>
-  );
+  return <RouterProvider router={Router} />;
 }
 
 export default App;

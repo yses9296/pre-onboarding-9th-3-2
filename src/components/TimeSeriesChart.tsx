@@ -1,5 +1,4 @@
-import React, { useRef } from "react";
-import { MockType } from "types/mockData.type";
+import React from "react";
 import {
   Chart as ChartJS,
   LinearScale,

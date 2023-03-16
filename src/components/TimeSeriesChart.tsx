@@ -33,7 +33,7 @@ ChartJS.register(
 const TimeSeriesChart = () => {
   const targetID = useTargetId();
   const chartDataSet = useChartDataSet(targetID);
-  const chartOption = useChartOption(); //기존 코드
+  const chartOption = useChartOption();
 
   return (
     <div className="w-10/12 mx-auto">

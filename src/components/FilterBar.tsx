@@ -2,13 +2,11 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { dataArr } from "../utils/fetchData";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useTargetId } from "../hooks/useTargetId";
 
-type Props = {
-  targetID: string | null;
-};
-const FilterBar = ({ targetID }: Props) => {
+const FilterBar = () => {
   const navigate = useNavigate();
-
+  const targetID = useTargetId();
   const placeArr = [...new Set<string>(dataArr.map((data) => data.id))];
   const [selected, isSelected] = React.useState<string>(targetID || "");
 
@@ -25,7 +23,7 @@ const FilterBar = ({ targetID }: Props) => {
       <div className="absolute left-10">
         {placeArr.map((place, idx) => (
           <button
-            key={idx}
+            key={place}
             value={place}
             onClick={onClickPlaceHandler}
             className={

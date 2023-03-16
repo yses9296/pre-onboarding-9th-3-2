@@ -13,8 +13,9 @@ import {
 } from "chart.js";
 
 import { Chart as ReactChart } from "react-chartjs-2";
-import getChartOption from "../utils/getChartOption";
-import getChartDataSet from "../utils/getChartDataSet";
+import useChartOption from "../hooks/useChartOption";
+import useChartDataSet from "../hooks/useChartDataSet";
+import { useTargetId } from "../hooks/useTargetId";
 
 ChartJS.register(
   LinearScale,
@@ -29,13 +30,10 @@ ChartJS.register(
   BarController
 );
 
-type Props = {
-  targetID: string | null;
-};
-
-const TimeSeriesChart = ({ targetID }: Props) => {
-  const chartDataSet = getChartDataSet(targetID);
-  const chartOption = getChartOption();
+const TimeSeriesChart = () => {
+  const targetID = useTargetId();
+  const chartDataSet = useChartDataSet(targetID);
+  const chartOption = useChartOption(); //기존 코드
 
   return (
     <div className="w-10/12 mx-auto">

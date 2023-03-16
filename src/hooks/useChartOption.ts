@@ -1,18 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { ChartOptions } from "chart.js";
-import { dataArr } from "./fetchData";
+import { dataArr } from "../utils/fetchData";
 
 const Y_AXIS_MAX = 200;
 
-const getChartOption = () => {
+const useChartOption = () => {
   const navigate = useNavigate();
 
   const options: ChartOptions = {
     responsive: true,
-    interaction: {
-      mode: "index" as const,
-      intersect: false,
-    },
     plugins: {
       legend: {
         position: "top" as const,
@@ -48,7 +44,7 @@ const getChartOption = () => {
       },
     },
 
-    onClick: function (event, element) {
+    onClick: (event, element) => {
       navigate(`?targetId=${dataArr[element[0].index].id}`);
     },
   };
@@ -56,4 +52,4 @@ const getChartOption = () => {
   return options;
 };
 
-export default getChartOption;
+export default useChartOption;

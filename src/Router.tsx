@@ -11,10 +11,6 @@ const Router = createBrowserRouter([
         path: "/",
         element: <ChartPage />,
       },
-      {
-        path: "/:targetId",
-        element: <ChartPage />,
-      },
     ],
     errorElement: <NotFoundPage />,
   },

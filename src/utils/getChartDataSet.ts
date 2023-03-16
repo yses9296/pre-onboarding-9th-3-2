@@ -1,3 +1,4 @@
+import { MockType } from "./../types/mockData.type";
 import { getDataBarColor, getDataLinePointColor } from "./getDataColor";
 import { dataArr } from "./fetchData";
 
@@ -5,22 +6,12 @@ export const X_AXIS_KEY = "x";
 export const Y_AXIS_KEY = "y";
 
 const getChartDataSet = (targetID: string | null) => {
-  const id_DataArr = dataArr.map((item) => item.id);
-
-  const value_area_DataArr = dataArr.map((val) => ({
-    [X_AXIS_KEY]: val.date,
-    [Y_AXIS_KEY]: val.value_area,
-  }));
-
-  const value_bar_DataArr = dataArr.map((val) => ({
-    [X_AXIS_KEY]: val.date,
-    [Y_AXIS_KEY]: val.value_bar,
-  }));
+  const id_DataArr = dataArr.map((item: MockType) => item.id);
 
   const dataAreaSet = {
     type: "line" as const,
     label: "Area",
-    data: value_area_DataArr,
+    data: dataArr.map((item) => item.value_area),
     parsing: {
       xAxisKey: X_AXIS_KEY,
       yAxisKey: Y_AXIS_KEY,
@@ -37,7 +28,7 @@ const getChartDataSet = (targetID: string | null) => {
   const dataBarSet = {
     type: "bar" as const,
     label: "Bar",
-    data: value_bar_DataArr,
+    data: dataArr.map((item: MockType) => item.value_bar),
     parsing: {
       xAxisKey: X_AXIS_KEY,
       yAxisKey: Y_AXIS_KEY,

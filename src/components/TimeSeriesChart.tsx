@@ -14,7 +14,7 @@ import {
 
 import { Chart as ReactChart } from "react-chartjs-2";
 import useChartOption from "../hooks/useChartOption";
-import useChartDataSet from "../utils/getChartDataSet";
+import getChartDataSet from "../utils/getChartDataSet";
 import { useTargetId } from "../hooks/useTargetId";
 
 ChartJS.register(
@@ -32,7 +32,7 @@ ChartJS.register(
 
 const TimeSeriesChart = () => {
   const targetID = useTargetId();
-  const chartDataSet = useChartDataSet(targetID);
+  const chartDataSet = getChartDataSet(targetID);
   const chartOption = useChartOption();
 
   return (

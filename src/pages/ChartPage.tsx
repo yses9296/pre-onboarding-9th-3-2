@@ -1,7 +1,5 @@
-import { useLocation } from "react-router-dom";
 import FilterBar from "../components/FilterBar";
 import TimeSeriesChart from "../components/TimeSeriesChart";
-import { getQueryData } from "../utils/getQueryData";
 
 const ChartPage = () => {
   return (

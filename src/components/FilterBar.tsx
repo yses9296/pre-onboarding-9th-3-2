@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { dataArr } from "../utils/fetchData";
 import { AiOutlineCloseCircle } from "react-icons/ai";
@@ -7,8 +7,9 @@ import { useTargetId } from "../hooks/useTargetId";
 const FilterBar = () => {
   const navigate = useNavigate();
   const targetID = useTargetId();
-  const placeArr = [...new Set<string>(dataArr.map((data) => data.id))];
-  const [selected, isSelected] = React.useState<string>(targetID || "");
+  const placeArr =
+    [...new Set<string>(dataArr.map((data) => data.id))].sort() || [];
+  const [selected, isSelected] = useState<string>(targetID || "");
 
   useEffect(() => {
     isSelected(targetID || "");

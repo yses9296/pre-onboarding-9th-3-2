@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
+
 const NotFoundPage = () => {
   const navigate = useNavigate();
   return (

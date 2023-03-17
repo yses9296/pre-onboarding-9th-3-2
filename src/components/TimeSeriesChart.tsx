@@ -14,7 +14,7 @@ import {
 
 import { Chart as ReactChart } from "react-chartjs-2";
 import useChartOption from "../hooks/useChartOption";
-import useChartDataSet from "../hooks/useChartDataSet";
+import useChartDataSet from "../utils/getChartDataSet";
 import { useTargetId } from "../hooks/useTargetId";
 
 ChartJS.register(

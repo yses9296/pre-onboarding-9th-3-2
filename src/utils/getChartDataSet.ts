@@ -1,11 +1,11 @@
 import { MockType } from "../types/mockData.type";
-import { getDataBarColor, getDataLinePointColor } from "../utils/getDataColor";
-import { dataArr } from "../utils/fetchData";
+import { getDataBarColor, getDataLinePointColor } from "./getDataColor";
+import { dataArr } from "./fetchData";
 
 export const X_AXIS_KEY = "x";
 export const Y_AXIS_KEY = "y";
 
-const useChartDataSet = (targetID: string | null) => {
+const getChartDataSet = (targetID: string | null) => {
   const id_DataArr = dataArr.map((item: MockType) => item.id);
 
   const dataAreaSet = {
@@ -45,4 +45,4 @@ const useChartDataSet = (targetID: string | null) => {
   };
 };
 
-export default useChartDataSet;
+export default getChartDataSet;
